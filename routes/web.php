@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('index');
 });
+
+
+Route::group(['middleware' => ['web']], function(){	
+	Route::post('/signup', [
+		'uses' => 'UserController@postSignUp',
+		'as' => 'signup'
+	]);
+});
