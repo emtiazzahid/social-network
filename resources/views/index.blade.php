@@ -3,9 +3,8 @@
 @section('title')
 	Welcome
 @endsection
-
 @section('content')
-<!-- LOGIN FORM -->
+	<!-- LOGIN FORM -->
 <div class="col-md-6">
 	<form method="POST" action="{{ route('signup') }}" class="form-horizontal">
 	<div class="form-group">
@@ -35,8 +34,10 @@
 </form>
 </div>
 
+
 <div class="col-md-6">
-	<form class="form-horizontal" method="post" action="{{  }}">
+	<form class="form-horizontal" method="post" action="{{ route('signup') }}">
+	<input type="hidden" name="_token" value="{{ Session('token') }}">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
@@ -65,5 +66,4 @@
   </div>
 </form>
 </div>
-
 @endsection

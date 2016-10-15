@@ -25,6 +25,8 @@ class UserController extends Controller
     	$user->save();
 
     	return redirect()->back();
+
+    	// dd($request->all());
     }
 
     public function postSignIn(){
