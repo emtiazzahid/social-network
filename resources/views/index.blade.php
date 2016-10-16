@@ -5,10 +5,29 @@
 @endsection
 @section('content')
   @if(Session::has('message'))
-  <div class="alert alert-warning">
+  <div class="alert alert-danger alert-dismissable">
     <strong>Warning!</strong> {{ Session::get('message') }}
+    <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
+        &times;
+   </button>
   </div>
   @endif
+  
+  @if(count($errors) >0)
+    <ul>
+        @foreach($errors->all() as $error)
+          <li>
+            <div class = "alert alert-danger alert-dismissable">
+             <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
+                &times;
+             </button>
+            {{ $error }}
+            </div>
+          </li>
+        @endforeach
+    </ul>
+    @endif
+
 	<!-- LOGIN FORM -->
 <div class="col-md-6">
 	<form method="POST" action="{{ route('signup') }}" class="form-horizontal">
