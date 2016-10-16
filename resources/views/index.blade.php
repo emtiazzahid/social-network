@@ -31,22 +31,22 @@
 	<!-- LOGIN FORM -->
 <div class="col-md-6">
 	<form method="POST" action="{{ route('signup') }}" class="form-horizontal">
-	<div class="form-group">
+	<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}" >
     <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+      <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="{{ Request::old('name') }}">
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+      <input type="email" name="email" class="form-control" id="email" placeholder="Email"  value="{{ Request::old('email') }}">
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+      <input type="password" name="password" class="form-control" id="password" placeholder="Password" >
     </div>
   </div>
   <div class="form-group">
@@ -62,13 +62,13 @@
 <div class="col-md-6">
 	<form class="form-horizontal" method="post" action="{{ route('signin') }}">
 	<input type="hidden" name="_token" value="{{ Session::token() }}">
-  <div class="form-group">
+  <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+      <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email"  value="{{ Request::old('email') }}">
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
     <div class="col-sm-10">
       <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
