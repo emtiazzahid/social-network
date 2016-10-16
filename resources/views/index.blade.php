@@ -4,6 +4,11 @@
 	Welcome
 @endsection
 @section('content')
+  @if(Session::has('message'))
+  <div class="alert alert-warning">
+    <strong>Warning!</strong> {{ Session::get('message') }}
+  </div>
+  @endif
 	<!-- LOGIN FORM -->
 <div class="col-md-6">
 	<form method="POST" action="{{ route('signup') }}" class="form-horizontal">
@@ -36,8 +41,8 @@
 
 
 <div class="col-md-6">
-	<form class="form-horizontal" method="post" action="{{ route('signup') }}">
-	<input type="hidden" name="_token" value="{{ Session('token') }}">
+	<form class="form-horizontal" method="post" action="{{ route('signin') }}">
+	<input type="hidden" name="_token" value="{{ Session::token() }}">
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">

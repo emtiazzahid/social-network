@@ -13,10 +13,30 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
+
+Route::get('/dashboard', [
+	'uses' => 'UserController@getDashboard',
+	'middleware'=>'auth',
+	'as' => 'dashboard'
+]);
 
 Route::post('/signup', [
 	'uses' => 'UserController@postSignUp',
 	'as' => 'signup'
+]);
+
+Route::post('/signin', [
+	'uses' => 'UserController@postSignIn',
+	'as' => 'signin'
+]);
+
+Route::get('/logout', [
+	'uses' => 'UserController@logout',
+	'as' => 'logout'
+]);
+Route::get('/login', [
+	'uses' => 'UserController@login',
+	'as' => 'login'
 ]);
