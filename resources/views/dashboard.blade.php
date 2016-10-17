@@ -31,10 +31,11 @@
     <section class="row posts">
     	<div class="col-md-6 col-md-offset-3">
     		<header><h3>What other people say...</h3></header>
+    		@foreach($posts as $post)
     		<article class="post">
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident incidunt velit, ipsa consequuntur quaerat a possimus repellat corporis minima. Vero a atque dolorum deleniti quos officiis praesentium porro facere, nulla?</p>
+    			<p>{{ $post->body }}</p>
     			<div class="info">
-    				Posted by Zahid on 12 feb 2016
+    				Posted by {{ $post->user->name }} on {{ $post->created_at }}
     			</div>
     			<div class="interaction">
     				<a href="#">Like</a> |
@@ -44,33 +45,7 @@
     			</div>
     			<br>
     		</article>
-    		<article class="post">
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident incidunt velit, ipsa consequuntur quaerat a possimus repellat corporis minima. Vero a atque dolorum deleniti quos officiis praesentium porro facere, nulla?</p>
-    			<div class="info">
-    				Posted by Zahid on 12 feb 2016
-    			</div>
-    			<div class="interaction">
-    				<a href="#">Like</a> |
-    				<a href="#">Dislike</a> |
-    				<a href="#">Edit</a> |
-    				<a href="#">Delete</a>
-    			</div>
-    			<br>
-    		</article>
-    		<article class="post">
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident incidunt velit, ipsa consequuntur quaerat a possimus repellat corporis minima. Vero a atque dolorum deleniti quos officiis praesentium porro facere, nulla?</p>
-    			<div class="info">
-    				Posted by Zahid on 12 feb 2016
-    			</div>
-    			<div class="interaction">
-    				<a href="#">Like</a> |
-    				<a href="#">Dislike</a> |
-    				<a href="#">Edit</a> |
-    				<a href="#">Delete</a>
-    			</div>
-    			<br>
-    		</article>
-
+			@endforeach
     	</div>
     </section>
 @endsection

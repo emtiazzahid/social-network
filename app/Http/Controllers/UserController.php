@@ -12,9 +12,7 @@ use App\User;
 class UserController extends Controller
 {
     //
-	public function  getDashboard(){
-		return view('dashboard');
-	}
+	
     public function postSignUp(Request $request){
         $this->validate($request,[
                 'email' => 'required|email|unique:users',

@@ -10,6 +10,10 @@ use App\Post;
 
 class PostController extends Controller
 {
+	public function  getDashboard(){
+		$posts = Post::all();
+		return view('dashboard')->with(['posts' => $posts]);
+	}
 	public function postCreatePost(Request $request)
 	{
 		$this->validate($request,[

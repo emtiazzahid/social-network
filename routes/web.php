@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', [
-	'uses' => 'UserController@getDashboard',
+	'uses' => 'PostController@getDashboard',
 	'middleware'=>'auth',
 	'as' => 'dashboard'
 ]);
