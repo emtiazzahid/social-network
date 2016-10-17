@@ -49,7 +49,7 @@ class UserController extends Controller
 		if(Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
 			return redirect()->route('dashboard');
 		}
-		session()->flash('message','Wrong email or password!');
+		session()->flash('wrong_pass_message','Wrong email or password!');
 		return redirect()->route('index');
     }
 

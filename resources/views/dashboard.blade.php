@@ -11,7 +11,7 @@
         <input type="hidden" name="_token" value="{{ Session::token() }}">
         <input type="submit" value="Logout" class="btn btn-danger">
     </form> -->
-
+ @include('includes.message-block')
     <section class="row row-post">
     	<div class="col-md-6 col-md-offset-3">
     		<header><h3>Whats on your mind</h3></header>
