@@ -43,5 +43,12 @@ Route::get('/login', [
 
 Route::post('/createpost',[
 	'uses' => 'PostController@postCreatePost',
+	'middleware' => 'auth',
 	'as' => 'post.create'
+	]);
+
+Route::get('/deletePostById/{post_id}',[
+	'uses' => 'PostController@deletePost',
+	'middleware' => 'auth',
+	'as' => 'deletePostById'
 	]);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Post;
+use Auth;
 
 
 class PostController extends Controller
@@ -26,5 +27,11 @@ class PostController extends Controller
 			$message = "Post successfully created.";
 		}
 		return redirect()->route('dashboard')->with(['post_message' => $message]);
+	}
+
+	public function deletePost($post_id){
+		$post = Post::where('id',$post_id)->first();
+		$post->delete();
+		return redirect()->route('dashboard')->with('post_message', 'successfully deleted post');
 	}
 }
