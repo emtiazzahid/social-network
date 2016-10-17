@@ -40,3 +40,8 @@ Route::get('/login', [
 	'uses' => 'UserController@login',
 	'as' => 'login'
 ]);
+
+Route::post('/createpost',[
+	'uses' => 'PostController@postCreatePost',
+	'as' => 'post.create'
+	]);
